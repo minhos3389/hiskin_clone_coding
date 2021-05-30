@@ -8,14 +8,21 @@
   </nav>
   <div class="row mt-4">
     <div class="col-6">
-      <img src="<%= url_for(@pack.image) %>" class="img-fluid">
+      <% if @pack.image.attached? %>
+        <img src="<%= url_for(@pack.image) %>" class="img-fluid">
+      <% else %>
+        <img src="https://via.placeholder.com/640x360?text=No+Image" alt="img-fluid">
+      <% end %>
     </div>
     <div class="col-6">
-      <p>제품명: <%= @pack.product_name %></p>
+      <h5>제품명</h5>
+      <p><%= @pack.product_name %></p>
       <hr>
-      <p>제조사명: <%= @pack.company_name %></p>
+      <h5>제조사명</h5>
+      <p><%= @pack.company_name %></p>
       <hr>
-      <p>제품정보: <%= @pack.desc %></p>
+      <h5>설명</h5>
+      <p><%= @pack.desc %></p>
       
     </div>
   </div>
